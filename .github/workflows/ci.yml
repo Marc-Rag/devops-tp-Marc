@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -X POST "$N8N_WEBHOOK_URL" \
+          curl -X POST "${{ secrets.N8N_WEBHOOK_URL }}" \
           -H "Content-Type: application/json" \
           -d '{"status":"${{ job.status }}",
           "branch":"${{ github.ref_name }}",
