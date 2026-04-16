@@ -1,5 +1,5 @@
 # 🚀 DevOps TP — Pipeline Demo
-
+Oui
 Application de démonstration pour le TP DevOps.  
 Fil rouge : **commit → CI/CD → Docker Hub → n8n → notification**
 

@@ -23,3 +23,14 @@ jobs:
       - run: docker build -t ${{ secrets.DOCKER_USERNAME }}/app:latest .
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/app:latest
       
+notify:
+  needs: build-push
+  if: always()
+  runs-on: ubuntu-latest
+  steps:
+    - run: |
+      curl -X POST "$N8N_WEBHOOK_URL" \
+      -H "Content-Type: application/json" \
+      -d '{"status":"${{ job.status }}",
+      "branch":"${{ github.ref_name }}",
+      "author":"${{ github.actor }}"}'
