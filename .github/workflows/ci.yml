@@ -22,3 +22,4 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - run: docker build -t $USER/app:latest .
       - run: docker push $USER/app:latest
+      
